@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React from 'react';
 import styled from 'styled-components';
 import Colleen from '../components/Colleen';
 import DotLine from '../components/DotLine';
@@ -9,6 +9,13 @@ const HomeWrapper = styled.div`
   .intro {
     display: flex;
     justify-content: center;
+    margin: 0.5em 0;
+
+    @media (max-width: 727px) {
+      align-items: center;
+      flex-direction: column;
+      margin: 1em 0;
+    }
   }
 
   section {
@@ -25,6 +32,7 @@ const HomeWrapper = styled.div`
 
   .section-1 {
     flex-direction: column;
+    position: relative;
   }
 
   .section-1 p {
@@ -43,8 +51,19 @@ const HomeWrapper = styled.div`
     width: 90px;
   }
 
+  .intro-text {
+    @media (max-width: 727px) {
+      margin-top: 1em;
+      text-align: center;
+    }
+  }
+
   .intro-text p:nth-child(2) {
     margin-left: 0.5em;
+
+    @media (max-width: 727px) {
+      margin-left: unset;
+    }
   }
 
   .section-2 p {
@@ -66,9 +85,9 @@ const HomeWrapper = styled.div`
   }
 `;
 
-const IndexPage = () => {
+const IndexPage = (props) => {
   return (
-    <Layout pageTitle='Home Page'>
+    <Layout location={props.location}>
       <HomeWrapper>
         <section className='section-1'>
           <div className='dotline-wrapper'>

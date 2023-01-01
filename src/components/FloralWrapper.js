@@ -7,7 +7,7 @@ const Wrapper = styled.div`
 
   svg {
     max-height: 100%;
-    width: auto;
+    width: 100%;
   }
 
   .stroke-1 {
@@ -32,7 +32,7 @@ const Wrapper = styled.div`
       padding-bottom: var(--flower-padding);
 
       @media (max-width: 1000px) {
-        opacity: 0;
+        display: none;
       }
     `}
 `;

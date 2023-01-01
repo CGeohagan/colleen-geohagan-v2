@@ -3,9 +3,10 @@ import { StaticImage } from 'gatsby-plugin-image';
 
 import Layout from '../components/Layout';
 
-const TravelPage = () => {
+const TravelPage = (props) => {
+  console.log('props', props);
   return (
-    <Layout pageTitle='Travel'>
+    <Layout location={props.location}>
       <p>Hi there! This is the travel page</p>
       <StaticImage
         alt='Clifford, a reddish-brown pitbull, posing on a couch and looking stoically at the camera'

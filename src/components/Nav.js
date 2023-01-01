@@ -162,11 +162,6 @@ const Nav = () => {
                 </Link>
               </li>
               <li>
-                <Link to='/contact' activeClassName='active' onClick={onClick}>
-                  Contact
-                </Link>
-              </li>
-              <li>
                 <Link to='/projects' activeClassName='active' onClick={onClick}>
                   Projects
                 </Link>
@@ -174,6 +169,11 @@ const Nav = () => {
               <li>
                 <Link to='/travel' activeClassName='active' onClick={onClick}>
                   Travel
+                </Link>
+              </li>
+              <li>
+                <Link to='/contact' activeClassName='active' onClick={onClick}>
+                  Contact
                 </Link>
               </li>
             </ul>

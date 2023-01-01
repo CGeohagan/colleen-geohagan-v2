@@ -1,7 +1,7 @@
 import * as React from 'react';
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useRef } from 'react';
 // import { Helmet } from 'react-helmet';
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 import GlobalStyles from '../styles/GlobalStyles';
 import Dot from './Dot';
 import Nav from './Nav';
@@ -34,8 +34,7 @@ const InitialsWrapper = styled.div`
 const Main = styled.main`
   height: 50vh;
   box-shadow: inset 0 1px 3px 0 rgba(0, 0, 0, 0.5);
-  /* height: 52%; */
-  /* padding: 0.5em; */
+  position: relative;
   overflow: scroll;
 
   @media (max-width: 1000px) {
@@ -45,6 +44,40 @@ const Main = styled.main`
 
   @media (max-width: 1000px) {
     height: 65vh;
+  }
+
+  p.arrow {
+    animation: arrow 2s ease-out 4;
+    color: var(--gold);
+    font-size: 40px;
+    margin: 0;
+  }
+
+  .arrow-wrapper {
+    bottom: 5%;
+    cursor: pointer;
+    margin: 0;
+    padding: 10px;
+    position: absolute;
+    right: 5%;
+    z-index: 1;
+
+    @media (max-width: 1000px) {
+      bottom: 0;
+      right: 8%;
+    }
+  }
+
+  @keyframes arrow {
+    0% {
+      opacity: 1;
+    }
+    50% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
   }
 `;
 
@@ -85,14 +118,18 @@ const BottomContent = styled.div`
   }
 `;
 
-const Layout = ({ children }) => {
-  // const path = getPath(children);
-  // const [transitionClass, setTransitionClass] = useState('no-transition');
+const Layout = ({ children, location }) => {
+  const scrollRef = useRef();
+  const showArrow = location.pathname === '/';
 
-  // // Only want no transition on initial load
-  // useEffect(() => {
-  //   setTransitionClass('');
-  // }, []);
+  const onArrowClick = (e) => {
+    if (scrollRef && scrollRef.current) {
+      scrollRef.current.scrollTo({
+        top: scrollRef.current.scrollHeight,
+        behavior: 'smooth',
+      });
+    }
+  };
 
   return (
     <>
@@ -107,23 +144,24 @@ const Layout = ({ children }) => {
                 <Dot alignment='top' />
               </InitialsWrapper>
               <Nav />
-              <Main>{children}</Main>
+              <Main ref={scrollRef}>
+                {children}
+                {showArrow && (
+                  <div className='arrow-wrapper' onClick={onArrowClick}>
+                    <p className='arrow'>&#8595;</p>
+                  </div>
+                )}
+              </Main>
             </TopContent>
             <BottomContent>
               <Dot alignment='bottom' />
             </BottomContent>
           </Content>
-
           <FloralRight />
         </div>
       </Border>
     </>
   );
 };
-
-function getPath(children) {
-  const path = children.props.location.pathname || '';
-  return path.replace(/\//g, '');
-}
 
 export default Layout;

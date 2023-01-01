@@ -17,13 +17,12 @@ const DotStyles = styled.div`
     props.alignment !== 'top' &&
     css`
       @media (max-width: 1000px) {
-        opacity: 0;
+        display: none;
       }
     `}
 `;
 
 const Dot = ({ alignment }) => {
-  console.log('hi colleen alignment', alignment);
   return <DotStyles alignment={alignment} />;
 };
 
