@@ -16,7 +16,7 @@ const DotStyles = styled.div`
   ${(props) =>
     props.alignment !== 'top' &&
     css`
-      @media (max-width: 1000px) {
+      @media (max-width: 1024px) {
         display: none;
       }
     `}

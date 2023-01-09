@@ -24,7 +24,7 @@ const NavStyles = styled.div`
     display: none;
   }
 
-  @media screen and (max-width: 1000px) {
+  @media screen and (max-width: 1024px) {
     .nav-wrapper {
       position: fixed;
       top: 0;

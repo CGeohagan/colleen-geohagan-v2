@@ -13,8 +13,8 @@ const GlobalStyles = createGlobalStyle`
     --tan: #bd8a49;
     --brown: #b78e58;
     --flower-padding: 1em;
-    --small-width: 727px;
-    --medium-width: 1000px;
+    --small-width: 768px;
+    --medium-width: 1024px;
     --main-bg-color: var(--blue-grey);
   }
 
@@ -87,6 +87,9 @@ const GlobalStyles = createGlobalStyle`
   .travel {
     --main-bg-color: var(--brown);
   }
+
+
+
 
   /* .left {
     left: 0;

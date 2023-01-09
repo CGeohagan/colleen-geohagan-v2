@@ -3,7 +3,7 @@ import styled, { css } from 'styled-components';
 
 const Section = styled.section`
   transition: opacity 1s ease-out, transform 0.25s ease-out;
-  color: #3e4730;
+  /* color: #3e4730; */
   // opacity: ${(props) => props.opacity};
   display: flex;
   flex-direction: column;
@@ -30,11 +30,11 @@ const Section = styled.section`
       padding-right: var(--flower-padding);
     `}
 
-  @media (max-width: 1000px) {
+  @media (max-width: 1024px) {
     transform: scale(0.9);
   }
 
-  @media (max-width: 727px) {
+  @media (max-width: 768px) {
     transform: scale(0.95);
   }
 `;

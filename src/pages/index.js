@@ -2,7 +2,6 @@ import React from 'react';
 import styled from 'styled-components';
 import Colleen from '../components/Colleen';
 import DotLine from '../components/DotLine';
-
 import Layout from '../components/Layout';
 
 const HomeWrapper = styled.div`
@@ -11,7 +10,7 @@ const HomeWrapper = styled.div`
     justify-content: center;
     margin: 0.5em 0;
 
-    @media (max-width: 727px) {
+    @media (max-width: 768px) {
       align-items: center;
       flex-direction: column;
       margin: 1em 0;
@@ -25,14 +24,22 @@ const HomeWrapper = styled.div`
     align-items: center;
     justify-content: center;
 
-    @media (max-width: 1000px) {
-      height: 65vh;
+    @media (max-width: 1024px) {
+      height: calc(60vh - 2em);
+    }
+
+    @media (max-width: 768px) {
+      height: 70vh;
     }
   }
 
   .section-1 {
     flex-direction: column;
     position: relative;
+
+    @media (max-width: 768px) {
+      margin-top: -1em;
+    }
   }
 
   .section-1 p {
@@ -52,7 +59,7 @@ const HomeWrapper = styled.div`
   }
 
   .intro-text {
-    @media (max-width: 727px) {
+    @media (max-width: 768px) {
       margin-top: 1em;
       text-align: center;
     }
@@ -61,7 +68,7 @@ const HomeWrapper = styled.div`
   .intro-text p:nth-child(2) {
     margin-left: 0.5em;
 
-    @media (max-width: 727px) {
+    @media (max-width: 768px) {
       margin-left: unset;
     }
   }
@@ -72,7 +79,11 @@ const HomeWrapper = styled.div`
     line-height: 1.3;
     max-width: 700px;
 
-    @media (max-width: 1000px) {
+    @media (max-width: 768px) {
+      font-size: 27px;
+    }
+
+    @media (max-width: 1024px) {
       padding: 2em 0.5em;
     }
   }

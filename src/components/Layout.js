@@ -22,28 +22,33 @@ const Initials = styled.p`
 const InitialsWrapper = styled.div`
   padding-top: 5%;
 
-  @media (max-width: 1000px) {
+  @media (max-width: 1024px) {
     padding-bottom: 8%;
   }
 
-  @media (max-width: 727px) {
+  @media (max-width: 768px) {
     padding-bottom: 5%;
   }
 `;
 
 const Main = styled.main`
+  position: relative;
+  overflow-y: scroll;
   height: 50vh;
   box-shadow: inset 0 1px 3px 0 rgba(0, 0, 0, 0.5);
-  position: relative;
-  overflow: scroll;
+  padding-left: 1.2em;
 
-  @media (max-width: 1000px) {
-    box-shadow: none;
-    padding: var(--flower-padding);
+  @media (max-width: 1024px) {
+    height: 60vh;
+    margin-top: 1em;
+    padding: 1em 1em 1em 2.1em;
   }
 
-  @media (max-width: 1000px) {
-    height: 65vh;
+  @media (max-width: 768px) {
+    margin-top: 0;
+    box-shadow: none;
+    padding: var(--flower-padding);
+    height: 70vh;
   }
 
   p.arrow {
@@ -62,9 +67,35 @@ const Main = styled.main`
     right: 5%;
     z-index: 1;
 
-    @media (max-width: 1000px) {
+    @media (min-width: 768px) {
+      display: none;
+    }
+
+    @media (max-width: 1024px) {
       bottom: 0;
       right: 8%;
+    }
+  }
+
+  @media (min-width: 769px) {
+    /* custom scrollbar */
+    ::-webkit-scrollbar {
+      width: 1em;
+    }
+
+    ::-webkit-scrollbar-track {
+      background-color: transparent;
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background-color: var(--charcoal);
+      border-radius: 1em;
+      border: 6px solid transparent;
+      background-clip: content-box;
+    }
+
+    ::-webkit-scrollbar-thumb:hover {
+      background-color: var(--charcoal);
     }
   }
 
@@ -91,7 +122,7 @@ const Content = styled.div`
   width: 60%;
   z-index: 10;
 
-  @media screen and (max-width: 1000px) {
+  @media screen and (max-width: 768px) {
     width: 100%;
   }
 `;
@@ -107,13 +138,12 @@ const BottomContent = styled.div`
   align-items: flex-end;
   bottom: 7%;
   display: flex;
-  /* margin-top: 2em; */
   height: 24%;
   position: absolute;
   width: 60%;
   max-width: 750px;
 
-  @media screen and (max-width: 1000px) {
+  @media screen and (max-width: 1024px) {
     width: 100%;
   }
 `;
