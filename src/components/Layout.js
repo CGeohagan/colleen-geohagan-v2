@@ -148,9 +148,9 @@ const BottomContent = styled.div`
   }
 `;
 
-const Layout = ({ children, location }) => {
+const Layout = ({ children, path }) => {
   const scrollRef = useRef();
-  const showArrow = location.pathname === '/';
+  const showArrow = path === '/';
 
   const onArrowClick = (e) => {
     if (scrollRef && scrollRef.current) {

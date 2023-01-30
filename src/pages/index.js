@@ -2,7 +2,6 @@ import React from 'react';
 import styled from 'styled-components';
 import Colleen from '../components/Colleen';
 import DotLine from '../components/DotLine';
-import Layout from '../components/Layout';
 
 const HomeWrapper = styled.div`
   .intro {
@@ -98,35 +97,33 @@ const HomeWrapper = styled.div`
 
 const IndexPage = (props) => {
   return (
-    <Layout location={props.location}>
-      <HomeWrapper>
-        <section className='section-1'>
-          <div className='dotline-wrapper'>
-            <DotLine />
+    <HomeWrapper>
+      <section className='section-1'>
+        <div className='dotline-wrapper'>
+          <DotLine />
+        </div>
+        <div className='intro'>
+          <div className='colleen-wrapper'>
+            <Colleen />
           </div>
-          <div className='intro'>
-            <div className='colleen-wrapper'>
-              <Colleen />
-            </div>
-            <div className='intro-text'>
-              <p className='bold-italic'>Hello.</p>
-              <p className='bold-italic'>I'm Colleen</p>
-            </div>
+          <div className='intro-text'>
+            <p className='bold-italic'>Hello.</p>
+            <p className='bold-italic'>I'm Colleen</p>
           </div>
-          <div className='dotline-wrapper'>
-            <DotLine />
-          </div>
-        </section>
-        <section className='section-2'>
-          <p>
-            I am a Front End Engineer living in Charlotte, North Carolina with
-            my husband and three sleepy cats. I also love travel photography,
-            and am learning to paint and play piano. If I'm not on a long walk,
-            I'm usually reading a book from the library.
-          </p>
-        </section>
-      </HomeWrapper>
-    </Layout>
+        </div>
+        <div className='dotline-wrapper'>
+          <DotLine />
+        </div>
+      </section>
+      <section className='section-2'>
+        <p>
+          I am a Front End Engineer living in Charlotte, North Carolina with my
+          husband and three sleepy cats. I currently work at Vox Media. I also
+          love travel photography, and am learning to paint and play piano. If
+          I'm not on a long walk, I'm usually reading a book from the library.
+        </p>
+      </section>
+    </HomeWrapper>
   );
 };
 

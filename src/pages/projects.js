@@ -1,9 +1,7 @@
 import * as React from 'react';
 import styled from 'styled-components';
 
-import Layout from '../components/Layout';
-
-const ProjectStyles = styled.div`
+const ProjectList = styled.div`
   ol {
     margin: 1em 0;
     padding-left: 2.5em;
@@ -22,8 +20,9 @@ const ProjectStyles = styled.div`
 
 const ProjectsPage = (props) => {
   return (
-    <Layout location={props.location}>
-      <ProjectStyles>
+    <>
+      <h1>A few of my favorite side projects</h1>
+      <ProjectList>
         <ol type='I'>
           <li>
             <a
@@ -78,8 +77,8 @@ const ProjectsPage = (props) => {
             </a>
           </li>
         </ol>
-      </ProjectStyles>
-    </Layout>
+      </ProjectList>
+    </>
   );
 };
 
