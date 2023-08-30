@@ -9,8 +9,10 @@ const Section = styled.section`
   flex-direction: column;
   justify-content: space-between;
   position: absolute;
-  width: 25%;
+
+  width: ${(props) => (props.useWideLayout === false ? '25%' : '12%')};
   transform: scale(1);
+  transition: transform 0.3s ease;
   top: 0;
   bottom: 0;
 
@@ -39,8 +41,12 @@ const Section = styled.section`
   }
 `;
 
-const FloralSection = ({ children, alignment, opacity }) => {
-  return <Section alignment={alignment}>{children}</Section>;
+const FloralSection = ({ children, alignment, opacity, useWideLayout }) => {
+  return (
+    <Section alignment={alignment} useWideLayout={useWideLayout}>
+      {children}
+    </Section>
+  );
 };
 
 export default FloralSection;

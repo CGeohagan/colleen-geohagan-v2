@@ -4,6 +4,10 @@ import Colleen from '../components/Colleen';
 import DotLine from '../components/DotLine';
 
 const HomeWrapper = styled.div`
+  p {
+    font-family: 'Cormorant Garamond', serif;
+  }
+
   .intro {
     display: flex;
     justify-content: center;
@@ -107,8 +111,8 @@ const IndexPage = (props) => {
             <Colleen />
           </div>
           <div className='intro-text'>
-            <p className='bold-italic'>Hello.</p>
-            <p className='bold-italic'>I'm Colleen</p>
+            <p className='bold italic'>Hello.</p>
+            <p className='bold italic'>I'm Colleen</p>
           </div>
         </div>
         <div className='dotline-wrapper'>
@@ -127,6 +131,12 @@ const IndexPage = (props) => {
   );
 };
 
-export const Head = () => <title>Home Page</title>;
+export const Head = () => {
+  return (
+    <>
+      <title>Home Page</title>
+    </>
+  );
+};
 
 export default IndexPage;

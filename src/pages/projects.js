@@ -2,7 +2,8 @@ import * as React from 'react';
 import styled from 'styled-components';
 
 const ProjectList = styled.div`
-  ol {
+  ul {
+    list-style: none;
     margin: 1em 0;
     padding-left: 2.5em;
     text-align: left;
@@ -10,33 +11,53 @@ const ProjectList = styled.div`
   }
 
   li {
-    margin-bottom: 0.1em;
+    margin-bottom: 0.2em;
   }
 
   a {
-    letter-spacing: 0.1px;
+    /* font-family: 'Raleway', sans-serif; */
+    font-size: 15px;
+    font-size: 16px;
+    letter-spacing: 0.3px;
+  }
+`;
+
+const ProjectHeader = styled.div`
+  margin: 2em 0 1.4em;
+  text-align: center;
+
+  h2 {
+    margin: 4px auto;
+  }
+
+  p {
+    font-size: 11px;
+    margin-bottom: 2px;
   }
 `;
 
 const ProjectsPage = (props) => {
   return (
     <>
-      <h1>A few of my favorite side projects</h1>
+      <ProjectHeader>
+        <p className='italic'>A few of my favorite</p>
+        <h2>Personal Projects</h2>
+      </ProjectHeader>
       <ProjectList>
-        <ol type='I'>
+        <ul>
           <li>
             <a
               href='https://delightedcalligraphy.com/'
               target='_blank'
               rel='noreferrer'
             >
-              Delighted Calligraphy: A Wordpress website for a talented
+              I. Delighted Calligraphy: A Wordpress website for a talented
               calligrapher
             </a>
           </li>
           <li>
             <a href='https://selectlinx.com/' target='_blank' rel='noreferrer'>
-              SelectLinx: A Wordpress website for a small talent management
+              II. SelectLinx: A Wordpress website for a small talent management
               company
             </a>
           </li>
@@ -46,7 +67,7 @@ const ProjectsPage = (props) => {
               target='_blank'
               rel='noreferrer'
             >
-              Harry Potter Marauder's Map
+              III. Harry Potter Marauder's Map
             </a>
           </li>
           <li>
@@ -55,7 +76,7 @@ const ProjectsPage = (props) => {
               target='_blank'
               rel='noreferrer'
             >
-              TBone's Shipyard: A website for my Dad's model ships
+              IV. TBone's Shipyard: A website for my Dad's model ships
             </a>
           </li>
           <li>
@@ -64,7 +85,7 @@ const ProjectsPage = (props) => {
               target='_blank'
               rel='noreferrer'
             >
-              Hocus Pocus Animation
+              V. Hocus Pocus Animation
             </a>
           </li>
           <li>
@@ -73,11 +94,24 @@ const ProjectsPage = (props) => {
               target='_blank'
               rel='noreferrer'
             >
-              Piano Notes Game created in my attempt to learn to play
+              VI. Piano Notes Game created in my attempt to learn to play
             </a>
           </li>
-        </ol>
+          <li>
+            <a href='' target='_blank' rel='noreferrer'>
+              VII. Harry Potter Trivial Pursuit
+            </a>
+          </li>
+        </ul>
       </ProjectList>
+    </>
+  );
+};
+
+export const Head = () => {
+  return (
+    <>
+      <title>Projects Page</title>
     </>
   );
 };

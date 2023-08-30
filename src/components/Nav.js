@@ -13,7 +13,7 @@ const NavStyles = styled.div`
   }
 
   a {
-    font-size: 24px;
+    font-size: 18px;
   }
 
   .active a {
@@ -67,6 +67,11 @@ const NavStyles = styled.div`
 
     nav li {
       margin: 1em;
+    }
+
+    .active {
+      color: var(--gold);
+      color: pink;
     }
 
     .toggle {
@@ -157,22 +162,42 @@ const Nav = () => {
           <nav>
             <ul>
               <li>
-                <Link to='/' activeClassName='active' onClick={onClick}>
+                <Link
+                  to='/'
+                  activeClassName='active'
+                  onClick={onClick}
+                  activeStyle={{ color: 'var(--gold)' }}
+                >
                   Home
                 </Link>
               </li>
               <li>
-                <Link to='/projects' activeClassName='active' onClick={onClick}>
+                <Link
+                  to='/projects'
+                  activeClassName='active'
+                  onClick={onClick}
+                  activeStyle={{ color: 'var(--gold)' }}
+                >
                   Projects
                 </Link>
               </li>
               <li>
-                <Link to='/travel' activeClassName='active' onClick={onClick}>
+                <Link
+                  to='/travel'
+                  activeClassName='active'
+                  onClick={onClick}
+                  activeStyle={{ color: 'var(--gold)' }}
+                >
                   Travel
                 </Link>
               </li>
               <li>
-                <Link to='/contact' activeClassName='active' onClick={onClick}>
+                <Link
+                  to='/contact'
+                  activeClassName='active'
+                  onClick={onClick}
+                  activeStyle={{ color: 'var(--gold)' }}
+                >
                   Contact
                 </Link>
               </li>

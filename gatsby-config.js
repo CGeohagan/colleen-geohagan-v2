@@ -10,7 +10,10 @@ module.exports = {
     {
       resolve: `gatsby-plugin-google-fonts`,
       options: {
-        fonts: [`Cormorant Garamond\:400,400i,500i`],
+        fonts: [
+          `Cormorant Garamond\:400,400i,500,500i,600,600i`,
+          `Raleway\:400,400i`,
+        ],
         display: 'swap',
       },
     },

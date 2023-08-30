@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { useEffect, useState, useRef } from 'react';
-// import { Helmet } from 'react-helmet';
+import { Helmet } from 'react-helmet';
 import styled, { css } from 'styled-components';
 import GlobalStyles from '../styles/GlobalStyles';
 import Dot from './Dot';
@@ -12,8 +12,9 @@ const Border = styled.div`
   border: 1px solid var(--yellow);
 `;
 
-const Initials = styled.p`
+const Initials = styled.span`
   color: var(--gold);
+  display: block;
   font-size: 24px;
   text-align: center;
   margin: 0.2em auto;
@@ -32,11 +33,15 @@ const InitialsWrapper = styled.div`
 `;
 
 const Main = styled.main`
+  ${(props) =>
+    !props.useWideLayout &&
+    css`
+      overflow-y: scroll;
+      height: 50vh;
+      box-shadow: inset 0 1px 3px 0 rgba(0, 0, 0, 0.5);
+      padding-left: 1.2em;
+    `}
   position: relative;
-  overflow-y: scroll;
-  height: 50vh;
-  box-shadow: inset 0 1px 3px 0 rgba(0, 0, 0, 0.5);
-  padding-left: 1.2em;
 
   @media (max-width: 1024px) {
     height: 60vh;
@@ -117,10 +122,15 @@ const Content = styled.div`
   flex-direction: column;
   height: 100%;
   margin: 0 auto;
-  max-width: 750px;
   padding: var(--flower-padding) 0;
-  width: 60%;
   z-index: 10;
+
+  ${(props) =>
+    !props.useWideLayout &&
+    css`
+      max-width: 750px;
+      width: 60%;
+    `}
 
   @media screen and (max-width: 768px) {
     width: 100%;
@@ -151,6 +161,8 @@ const BottomContent = styled.div`
 const Layout = ({ children, path }) => {
   const scrollRef = useRef();
   const showArrow = path === '/';
+  const page = removeBackslash(path);
+  const useWideLayout = page === 'travel';
 
   const onArrowClick = (e) => {
     if (scrollRef && scrollRef.current) {
@@ -163,18 +175,23 @@ const Layout = ({ children, path }) => {
 
   return (
     <>
+      <Helmet
+        bodyAttributes={{
+          class: page,
+        }}
+      />
       <GlobalStyles />
       <Border>
         <div>
-          <FloralLeft />
-          <Content>
+          <FloralLeft useWideLayout={useWideLayout} />
+          <Content useWideLayout={useWideLayout}>
             <TopContent>
               <InitialsWrapper>
                 <Initials>CG</Initials>
                 <Dot alignment='top' />
               </InitialsWrapper>
               <Nav />
-              <Main ref={scrollRef}>
+              <Main ref={scrollRef} useWideLayout={useWideLayout}>
                 {children}
                 {showArrow && (
                   <div className='arrow-wrapper' onClick={onArrowClick}>
@@ -183,11 +200,13 @@ const Layout = ({ children, path }) => {
                 )}
               </Main>
             </TopContent>
-            <BottomContent>
-              <Dot alignment='bottom' />
-            </BottomContent>
+            {!useWideLayout && (
+              <BottomContent>
+                <Dot alignment='bottom' />
+              </BottomContent>
+            )}
           </Content>
-          <FloralRight />
+          <FloralRight useWideLayout={useWideLayout} />
         </div>
       </Border>
     </>
@@ -195,3 +214,7 @@ const Layout = ({ children, path }) => {
 };
 
 export default Layout;
+
+function removeBackslash(str) {
+  return str.replace(/\//g, '');
+}
